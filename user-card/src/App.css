@@ -59,6 +59,10 @@ img {
   margin: auto;
 }
 
+.follower-card .avatar {
+  max-width: 40%;
+} 
+
 .follower-card {
   width: 28%;
   text-align: center;
