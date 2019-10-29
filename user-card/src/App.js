@@ -21,27 +21,27 @@ class App extends React.Component {
       this.setState({
         userData: resolve.data,
       })
-      // return axios.get('https://api.github.com/users/Kerri-AnnBates/followers');
+      return axios.get('https://api.github.com/users/Kerri-AnnBates/followers');
     })
-    // .then(resolve => {
-    //   // console.log(resolve.data)
-    //   this.setState({
-    //     followersData: resolve.data
-    //   })
-    // })
+    .then(resolve => {
+      // console.log(resolve.data)
+      this.setState({
+        followersData: resolve.data
+      })
+    })
     .catch(error => {
       console.log('Error: Unable to fetch data', error);
     })
 
-    axios.get('https://api.github.com/users/Kerri-AnnBates/followers')
-      .then(resolve => {
-        console.log(resolve.data);
-        this.setState({
-          followersData: resolve.data
-        })
-      }).catch(error => {
-        console.log(error);
-      })
+    // axios.get('https://api.github.com/users/Kerri-AnnBates/followers')
+    //   .then(resolve => {
+    //     console.log(resolve.data);
+    //     this.setState({
+    //       followersData: resolve.data
+    //     })
+    //   }).catch(error => {
+    //     console.log(error);
+    //   })
   }
 
   
