@@ -6,7 +6,6 @@ function SearchForm(props) {
         <div className="search-form">
             <form onSubmit={handleSubmit}>
                 <input type="text" placeholder="Search for new user" onChange={handleChange} />
-                <button>Search</button>
             </form>
         </div>
     )
