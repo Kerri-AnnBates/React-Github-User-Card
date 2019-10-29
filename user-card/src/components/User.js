@@ -1,12 +1,13 @@
 import React from 'react';
+import Cards from './Card';
+import '../App.css';
 
 function User(props) {
     const { userData } = props;
 
     return (
         <div className="user-container">
-            <h2>hello from user.js</h2>
-            <p>My name is {userData.name}</p>
+            <Cards userData={userData} />
         </div>
     )
 }
