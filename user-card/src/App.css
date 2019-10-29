@@ -61,7 +61,7 @@ img {
 
 .follower-card .avatar {
   max-width: 40%;
-} 
+}
 
 .follower-card {
   width: 28%;
@@ -82,4 +82,16 @@ img {
   width: 90%;
   display: flex;
   justify-content: space-evenly;
+}
+
+input {
+  max-width: 200px;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 20px auto;
+}
+
+.search-form {
+  text-align: center;
 }

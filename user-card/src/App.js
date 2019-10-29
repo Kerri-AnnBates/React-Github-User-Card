@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import User from './components/User';
 import Followers from './components/Follwers';
+import SearchForm from './components/SearchForm';
 
 class App extends React.Component {
   constructor() {
@@ -51,6 +52,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Hello, User</h1>
+        <SearchForm />
         <User userData={this.state.userData} />
         {this.state.followersData.length === 0 && console.log('followers loading')}
           <h2>Followers</h2>

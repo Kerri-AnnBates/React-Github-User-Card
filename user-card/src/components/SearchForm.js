@@ -3,8 +3,9 @@ import React from 'react';
 function SearchForm() {
     return (
         <div className="search-form">
-            hello from form
-            <input type="text" />
+            <input type="text" placeholder="Search for new user" />
         </div>
     )
 }
+
+export default SearchForm;
