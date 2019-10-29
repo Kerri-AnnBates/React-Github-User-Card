@@ -1,9 +1,13 @@
 import React from 'react';
 
-function SearchForm() {
+function SearchForm(props) {
+    const { handleChange, handleSubmit } = props;
     return (
         <div className="search-form">
-            <input type="text" placeholder="Search for new user" />
+            <form onSubmit={handleSubmit}>
+                <input type="text" placeholder="Search for new user" onChange={handleChange} />
+                <button>Search</button>
+            </form>
         </div>
     )
 }

@@ -11,7 +11,9 @@ class App extends React.Component {
     
     this.state = {
       userData: [],
-      followersData: []
+      followersData: [],
+      query: '',
+      userValue: ''
     }
   }
   
@@ -45,14 +47,52 @@ class App extends React.Component {
     //   })
   }
 
+  handleChange = (e) => {
+    this.setState({
+      userValue: e.target.value
+    })
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('submit');
+    this.setState({
+      query: this.state.userValue
+    })
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.query != this.state.query) {
+      axios.get(`https://api.github.com/users/${this.state.query}`)
+        .then(resolve => {
+          console.log(resolve.data);
+          this.setState({
+            userData: resolve.data,
+          })
+          return axios.get(`https://api.github.com/users/${this.state.query}/followers`);
+        })
+        .then(resolve => {
+          // console.log(resolve.data)
+          this.setState({
+            followersData: resolve.data
+          })
+        })
+        .catch(error => {
+          console.log('Error: Unable to fetch data', error);
+        })
+    }
+  }
   
   render() {
-    console.log('loading data...');
-    console.log(this.state.followersData);
+    // console.log('loading data...');
+    // console.log(this.state.followersData);
     return (
       <div className="App">
         <h1>Hello, User</h1>
-        <SearchForm />
+        <SearchForm 
+          handleChange={this.handleChange} 
+          handleSubmit={this.handleSubmit}
+        />
         <User userData={this.state.userData} />
         {this.state.followersData.length === 0 && console.log('followers loading')}
           <h2>Followers</h2>
