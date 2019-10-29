@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import axios from 'axios';
+import User from './components/User';
 
 class App extends React.Component {
   constructor() {
@@ -15,7 +16,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('https://api.github.com/users/Kerri-AnnBates')
     .then(resolve => {
-      // console.log(resolve.data);
+      console.log(resolve.data);
       this.setState({
         userData: resolve.data
       })
@@ -28,10 +29,11 @@ class App extends React.Component {
 
   
   render() {
-    
+    console.log('loading data...');
     return (
       <div className="App">
         <h1>Hello, User</h1>
+        <User userData={this.state.userData} />
       </div>
     );
   }
