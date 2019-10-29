@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import User from './components/User';
+import Followers from './components/Follwers';
 
 class App extends React.Component {
   constructor() {
@@ -19,28 +20,40 @@ class App extends React.Component {
       console.log(resolve.data);
       this.setState({
         userData: resolve.data,
-        followersData: resolve.data.followers_url
       })
-      return axios.get('https://api.github.com/users/Kerri-AnnBates/followers');
+      // return axios.get('https://api.github.com/users/Kerri-AnnBates/followers');
     })
-    .then(resolve => {
-      this.setState({
-        followersData: resolve.data
-      })
-    })
+    // .then(resolve => {
+    //   // console.log(resolve.data)
+    //   this.setState({
+    //     followersData: resolve.data
+    //   })
+    // })
     .catch(error => {
       console.log('Error: Unable to fetch data', error);
     })
+
+    axios.get('https://api.github.com/users/Kerri-AnnBates/followers')
+      .then(resolve => {
+        console.log(resolve.data);
+        this.setState({
+          followersData: resolve.data
+        })
+      }).catch(error => {
+        console.log(error);
+      })
   }
 
   
   render() {
     console.log('loading data...');
-    console.log(this.state.followersData)
+    console.log(this.state.followersData);
     return (
       <div className="App">
         <h1>Hello, User</h1>
         <User userData={this.state.userData} />
+        {this.state.followersData.length === 0 && console.log('followers loading')}
+          <Followers followersData={this.state.followersData} />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-function Cards(props) {
+export function UserCard(props) {
     const { userData } = props;
 
     return (
@@ -22,4 +22,21 @@ function Cards(props) {
     )
 }
 
-export default Cards;
+export function FollwerCard(props) {
+    const { followersData } = props;
+
+    return (
+        <div className="follower-card">
+            <h2>{followersData.login}</h2>
+            <div className="avatar">
+                <img src={followersData.avatar_url} alt={followersData.login} />
+            </div>
+            <div className="details">
+                <div className="social">
+                    <p>Profile: <a href={followersData.html_url}>{followersData.html_url}</a></p>
+                    <p>Followers: {followersData.followers}</p>
+                </div>
+            </div>
+        </div>
+    )
+}

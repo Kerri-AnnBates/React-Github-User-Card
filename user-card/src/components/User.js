@@ -1,5 +1,5 @@
 import React from 'react';
-import Cards from './Card';
+import {UserCard} from './Card';
 import '../App.css';
 
 function User(props) {
@@ -7,7 +7,7 @@ function User(props) {
 
     return (
         <div className="user-container">
-            <Cards userData={userData} />
+            <UserCard userData={userData} />
         </div>
     )
 }
