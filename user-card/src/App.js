@@ -18,9 +18,15 @@ class App extends React.Component {
     .then(resolve => {
       console.log(resolve.data);
       this.setState({
-        userData: resolve.data
+        userData: resolve.data,
+        followersData: resolve.data.followers_url
       })
-
+      return axios.get('https://api.github.com/users/Kerri-AnnBates/followers');
+    })
+    .then(resolve => {
+      this.setState({
+        followersData: resolve.data
+      })
     })
     .catch(error => {
       console.log('Error: Unable to fetch data', error);
@@ -30,6 +36,7 @@ class App extends React.Component {
   
   render() {
     console.log('loading data...');
+    console.log(this.state.followersData)
     return (
       <div className="App">
         <h1>Hello, User</h1>
