@@ -53,6 +53,7 @@ class App extends React.Component {
         <h1>Hello, User</h1>
         <User userData={this.state.userData} />
         {this.state.followersData.length === 0 && console.log('followers loading')}
+          <h2>Followers</h2>
           <Followers followersData={this.state.followersData} />
       </div>
     );

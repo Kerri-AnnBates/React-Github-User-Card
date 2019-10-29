@@ -27,14 +27,13 @@ export function FollwerCard(props) {
 
     return (
         <div className="follower-card">
-            <h2>{followersData.login}</h2>
+            <h3>{followersData.login}</h3>
             <div className="avatar">
                 <img src={followersData.avatar_url} alt={followersData.login} />
             </div>
             <div className="details">
                 <div className="social">
-                    <p>Profile: <a href={followersData.html_url}>{followersData.html_url}</a></p>
-                    <p>Followers: {followersData.followers}</p>
+                    <p><a href={followersData.html_url}>{followersData.html_url}</a></p>
                 </div>
             </div>
         </div>

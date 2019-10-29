@@ -1,9 +1,41 @@
-h1 {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #331E4D;
+}
+
+a {
+  color: #1E824C;
+  text-decoration: none;
+}
+
+h1, h2 {
   text-align: center;
+  padding: 10px 0;
+  color: #DCC6E0;
+}
+
+h2, h3 {
+  padding-bottom: 10px;
+}
+
+p {
+  padding-bottom: 10px;
 }
 
 img {
   max-width: 100%;
+}
+
+.App {
+  max-width: 960px;
+  width: 100%;
+  margin: auto;
+  padding: 0 20px;
 }
 
 .card {
@@ -17,8 +49,33 @@ img {
   text-align: center;
 }
 
+.card h2 {
+  color: #000;
+}
+
 .avatar {
   max-width: 80%;
   width: 100%;
   margin: auto;
+}
+
+.follower-card {
+  width: 28%;
+  text-align: center;
+  border-radius: 3px;
+  border: 2px solid;
+  padding: 10px;
+  background: #fff;
+}
+
+.follower-card a {
+  font-size: 12px;
+  padding: 5px 0;
+}
+
+.followers {
+  margin: 20px auto;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
 }
