@@ -84,8 +84,6 @@ class App extends React.Component {
   }
   
   render() {
-    // console.log('loading data...');
-    // console.log(this.state.followersData);
     return (
       <div className="App">
         <h1>Hello, User</h1>
